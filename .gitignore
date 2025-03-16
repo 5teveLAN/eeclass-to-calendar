@@ -1,0 +1,4 @@
+__pycache__/
+*.ics
+.env
+.DS_Store

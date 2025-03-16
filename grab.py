@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.safari.options import Options
-import time, os, uuid
+import time, os
 from bs4 import BeautifulSoup
 from ics import Calendar, Event
 from datetime import datetime

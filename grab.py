@@ -11,8 +11,8 @@ from datetime import datetime
 # 登入網址與作業頁面
 LOGIN_URL = "https://eeclass.utaipei.edu.tw/index/login"  # 你的學校登入網址
 HOMEWORK_URL = "https://eeclass.utaipei.edu.tw/dashboard/latestEvent"  # 公告頁面
-USERNAME = "u11107001"
-PASSWORD = "20040616s"
+USERNAME = input("輸入你的eeclass帳號：")
+PASSWORD = input("輸入你的eeclass密碼")
 
 # 設置 Safari WebDriver
 options = Options()

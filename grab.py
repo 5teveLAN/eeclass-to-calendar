@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.safari.options import Options
+from selenium.webdriver.common.keys import Keys
 import time, os
 from bs4 import BeautifulSoup
 from ics import Calendar, Event
@@ -33,13 +34,13 @@ try:
     
     # 點擊登入按鈕
     login_button = driver.find_element(By.CLASS_NAME, "btn-lg")
-    login_button.click()
+    login_button.send_keys(Keys.RETURN)
 
 
     login_button = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.CLASS_NAME, "keepLoginBtn"))
     )
-    login_button.click()
+    login_button.send_keys(Keys.RETURN)
 
 
     # 等待跳轉至首頁或公告頁面

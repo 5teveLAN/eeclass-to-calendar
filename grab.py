@@ -11,8 +11,8 @@ from datetime import datetime
 # 登入網址與作業頁面
 LOGIN_URL = "https://eeclass.utaipei.edu.tw/index/login"  # 你的學校登入網址
 HOMEWORK_URL = "https://eeclass.utaipei.edu.tw/dashboard/latestEvent"  # 公告頁面
-USERNAME = input("輸入你的eeclass帳號：")
-PASSWORD = input("輸入你的eeclass密碼")
+USERNAME = input("輸入你的eeclass帳號:")
+PASSWORD = input("輸入你的eeclass密碼:")
 
 # 設置 Safari WebDriver
 options = Options()
@@ -63,6 +63,19 @@ time.sleep(3)  # 等待頁面完全加載
 
 soup = BeautifulSoup(driver.page_source, "html.parser")
 
+import hashlib
+old_md5=""
+md5=hashlib.md5(soup.text.encode("utf-8-sig")).hexdigest()
+if os.path.exists('md5'):
+    with open('md5','r') as f:
+        old_md5=f.read()
+with open('md5', 'w') as f:
+    f.write(md5)
+if md5==old_md5:
+    print("網站未更新，結束程式")
+    exit()
+else:
+    print("網站已更新！")
 # 抓取作業表格
 table = soup.find('table', {'id': 'recentEventTable'})
 rows = table.find_all('tr')
